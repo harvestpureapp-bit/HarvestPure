@@ -29,6 +29,9 @@ app.use("/earnings", earningsRoutes);
 // Test Route
 app.get("/", (req, res) => {
   res.send("HarvestPure Backend Running 🚀");
+  console.log("Cloud name:", process.env.CLOUDINARY_CLOUD_NAME);
+console.log("API key:", process.env.CLOUDINARY_API_KEY);
+console.log("API secret:", process.env.CLOUDINARY_API_SECRET);
 });
 
 // Import DB (important)
