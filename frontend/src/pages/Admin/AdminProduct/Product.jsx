@@ -102,7 +102,11 @@ function Products() {
 
                       <td>
                         <img
-                          src={`https://harvestpure.onrender.com${product.primary_image}`}
+                          src={
+                            product.primary_image?.startsWith("http")
+                              ? product.primary_image
+                              : "https://placehold.co/50x50"
+                          }
                           alt={product.title}
                           className="product-img"
                         />

@@ -6,10 +6,10 @@ const storage = new CloudinaryStorage({
   cloudinary,
   params: {
     folder: "harvestpure_products",
-    allowed_formats: ["jpg", "jpeg", "png", "webp"],
+    allowed_formats: ["jpg", "jpeg", "png", "webp","avif"],
   },
 });
 
 const upload = multer({ storage });
 
-module.exports = upload;
+module.exports = upload; 

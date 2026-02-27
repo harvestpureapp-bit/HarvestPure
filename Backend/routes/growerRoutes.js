@@ -20,7 +20,13 @@ router.post(
   upload.single("profile_image"), // 👈 important
   addGrower,
 );
-router.put("/:id", protect, authorizeRoles("admin"), editGrower);
+router.put(
+  "/:id",
+  protect,
+  authorizeRoles("admin"),
+  upload.single("profile_image"),
+  editGrower,
+);
 router.delete("/:id", protect, authorizeRoles("admin"), removeGrower);
 
 // Public

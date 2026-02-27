@@ -46,9 +46,25 @@ const fetchGrower = async (req, res) => {
 
 const editGrower = async (req, res) => {
   try {
-    const updated = await updateGrower(req.params.id, req.body);
+    const name = req.body.name;
+    const description = req.body.description;
+    const rating = req.body.rating;
+    const profile_image = req.file
+      ? req.file.path
+      : req.body.existing_image || undefined;
+
+    console.log("editGrower data:", { name, description, rating, profile_image }); // ✅ debug
+
+    const updated = await updateGrower(req.params.id, {
+      name,
+      description,
+      rating,
+      profile_image,
+    });
+
     res.json(updated);
   } catch (error) {
+    console.error("Edit grower error:", error);
     res.status(500).json({ message: error.message });
   }
 };

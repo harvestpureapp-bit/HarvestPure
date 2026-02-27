@@ -12,6 +12,7 @@ function AdminGrowers() {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [editId, setEditId] = useState(null);
+  const [existingImage, setExistingImage] = useState(null);
 
   const token = localStorage.getItem("token");
 
@@ -45,26 +46,40 @@ function AdminGrowers() {
     const form = new FormData();
     form.append("name", formData.name);
     form.append("description", formData.description);
-    form.append("rating", formData.rating);
-    if (image) form.append("profile_image", image);
+    form.append("rating", formData.rating || 0);
+
+    if (image) {
+      form.append("profile_image", image);
+    } else if (existingImage) {
+      form.append("existing_image", existingImage);
+    }
+
+    let response;
 
     if (editId) {
-      await fetch(`https://harvestpure.onrender.com/growers/${editId}`, {
-        method: "PUT",
-        headers: { Authorization: `Bearer ${token}` },
-        body: form,
-      });
+      response = await fetch(
+        `https://harvestpure.onrender.com/growers/${editId}`,
+        {
+          method: "PUT",
+          headers: { Authorization: `Bearer ${token}` },
+          body: form,
+        },
+      );
     } else {
-      await fetch("https://harvestpure.onrender.com/growers", {
+      response = await fetch("https://harvestpure.onrender.com/growers", {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: form,
       });
     }
 
+    const data = await response.json();
+    console.log("Response:", data); // ✅ check browser console
+
     setFormData({ name: "", description: "", rating: "" });
     setImage(null);
     setPreview(null);
+    setExistingImage(null);
     setEditId(null);
     fetchGrowers();
   };
@@ -84,7 +99,11 @@ function AdminGrowers() {
       description: grower.description,
       rating: grower.rating,
     });
-    setPreview(`https://harvestpure.onrender.com${grower.profile_image}`);
+    const imgUrl = grower.profile_image?.startsWith("http")
+      ? grower.profile_image
+      : null;
+    setPreview(imgUrl);
+    setExistingImage(imgUrl);
   };
 
   return (
@@ -186,11 +205,15 @@ function AdminGrowers() {
                     <tr key={g.id}>
                       <td>{g.id}</td>
                       <td>
-                        <img
-                          src={g.profile_image}
-                          alt={g.name}
-                          className="grower-table-img"
-                        />
+                        {g.profile_image?.startsWith("http") ? (
+                          <img
+                            src={g.profile_image}
+                            alt={g.name}
+                            className="grower-table-img"
+                          />
+                        ) : (
+                          <span className="text-muted">No image</span>
+                        )}
                       </td>
                       <td>{g.name}</td>
                       <td>{g.rating}</td>

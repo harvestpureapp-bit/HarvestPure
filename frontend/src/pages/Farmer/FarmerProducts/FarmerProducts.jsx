@@ -17,7 +17,7 @@ function FarmerProducts() {
   const token = localStorage.getItem("token");
 
   const fetchProducts = async () => {
-    const res = await fetch("http://localhost:8080/products/farmer", {
+    const res = await fetch("hhttps://harvestpure.onrender.com/products/farmer", {
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -50,7 +50,7 @@ function FarmerProducts() {
       form.append("images", img);
     }
 
-    await fetch("http://localhost:8080/products", {
+    await fetch("hhttps://harvestpure.onrender.com/products", {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: form,
@@ -85,7 +85,11 @@ function FarmerProducts() {
               <div key={product.id} className="col-md-4">
                 <div className="product-card">
                   <img
-                    src={`http://localhost:8080${product.primary_image}`}
+                    src={
+                      product.primary_image?.startsWith("http")
+                        ? product.primary_image
+                        : "https://placehold.co/300x200"
+                    }
                     alt={product.title}
                     className="product-image"
                   />
