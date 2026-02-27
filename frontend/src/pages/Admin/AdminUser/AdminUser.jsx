@@ -8,7 +8,7 @@ function AdminUsers() {
   const token = localStorage.getItem("token");
 
   const fetchUsers = async () => {
-    const res = await fetch("http://localhost:8080/admin/users", {
+    const res = await fetch("https://harvestpure.onrender.com/admin/users", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -23,7 +23,7 @@ function AdminUsers() {
   }, []);
 
   const deleteUser = async (id) => {
-    await fetch(`http://localhost:8080/admin/users/${id}`, {
+    await fetch(`https://harvestpure.onrender.com/admin/users/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
