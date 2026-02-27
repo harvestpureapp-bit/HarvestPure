@@ -17,7 +17,7 @@ function FarmerProducts() {
   const token = localStorage.getItem("token");
 
   const fetchProducts = async () => {
-    const res = await fetch("hhttps://harvestpure.onrender.com/products/farmer", {
+    const res = await fetch("https://harvestpure.onrender.com/products/farmer", {
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -50,7 +50,7 @@ function FarmerProducts() {
       form.append("images", img);
     }
 
-    await fetch("hhttps://harvestpure.onrender.com/products", {
+    await fetch("https://harvestpure.onrender.com/products", {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: form,
