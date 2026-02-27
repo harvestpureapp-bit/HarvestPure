@@ -1,0 +1,66 @@
+.farmer-sidebar {
+  width: 260px;
+  height: 100vh;
+  background: #0f5132;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.farmer-logo {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.farmer-logo small {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.farmer-menu {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+
+.farmer-menu li {
+  margin-bottom: 15px;
+}
+
+.farmer-menu a {
+  text-decoration: none;
+  color: #d1e7dd;
+  padding: 10px 15px;
+  display: block;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  font-size: 14px;
+}
+
+.farmer-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.farmer-menu a.active {
+  background: white;
+  color: #0f5132;
+  font-weight: 600;
+}
+
+.farmer-logout a {
+  text-decoration: none;
+  color: #ffc107;
+  padding: 10px 15px;
+  display: block;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.farmer-logout a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}

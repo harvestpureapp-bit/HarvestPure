@@ -1,0 +1,95 @@
+.users-page {
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* Summary Cards */
+.user-card {
+  padding: 25px;
+  border-radius: 18px;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+}
+
+.total-card {
+  background: linear-gradient(135deg, #0d6efd, #4dabf7);
+}
+
+.admin-card {
+  background: linear-gradient(135deg, #6f42c1, #9775fa);
+}
+
+.farmer-card {
+  background: linear-gradient(135deg, #198754, #20c997);
+}
+
+.customer-card {
+  background: linear-gradient(135deg, #ffc107, #ffda6a);
+}
+
+.user-card h6 {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.user-card h2 {
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+/* Table */
+.modern-table thead {
+  background: #f1f3f5;
+  font-weight: 600;
+}
+
+.modern-table tbody tr {
+  transition: 0.2s ease;
+}
+
+.modern-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Role Badges */
+.role-badge {
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.role-badge.admin {
+  background: #e2e3ff;
+  color: #3f37c9;
+}
+
+.role-badge.farmer {
+  background: #d1e7dd;
+  color: #0f5132;
+}
+
+.role-badge.user {
+  background: #fff3cd;
+  color: #856404;
+}
+
+/* Delete Button */
+.modern-delete-btn {
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  border: none;
+  background: #dc3545;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.modern-delete-btn:hover {
+  opacity: 0.85;
+}

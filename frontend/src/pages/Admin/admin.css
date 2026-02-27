@@ -1,0 +1,43 @@
+/* Container */
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f6f9;
+}
+
+/* Sidebar Width Sync */
+.admin-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+}
+
+/* Main Content */
+.admin-main {
+  flex: 1;
+  padding: 25px;
+  margin-left: 260px; /* IMPORTANT */
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+.admin-logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.admin-menu li {
+  margin-bottom: 15px;
+}
+
+.admin-menu a {
+  text-decoration: none;
+  color: #d1d5db;
+  display: block;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.admin-menu a:hover,
+.admin-menu a.active {
+  background: #374151;
+  color: white;
+}

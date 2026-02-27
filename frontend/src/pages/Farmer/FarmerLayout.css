@@ -1,0 +1,11 @@
+.farmer-container {
+  display: flex;
+}
+
+.farmer-main {
+  margin-left: 260px;
+  padding: 20px;
+  width: 100%;
+  min-height: 100vh;
+  background: #f8f9fa;
+}

@@ -1,0 +1,76 @@
+.admin-sidebar {
+  width: 260px;
+  height: 100vh;
+  background: linear-gradient(180deg, #0f5132, #145c43);
+  color: white;
+  padding: 20px 15px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+/* Logo Section */
+.admin-logo {
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.logo-icon {
+  font-size: 28px;
+  color: #d1e7dd;
+}
+
+.admin-logo small {
+  font-size: 13px;
+  color: #cfe2ff;
+}
+
+/* Menu */
+.admin-menu {
+  margin-top: 25px;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: #e9f7ef;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  font-size: 15px;
+}
+
+.menu-link i {
+  width: 20px;
+  text-align: center;
+}
+
+.menu-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* Active Link */
+.menu-link.active {
+  background-color: white;
+  color: #0f5132;
+  font-weight: 600;
+}
+
+/* Logout */
+.admin-logout {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.logout-link {
+  color: #ffdddd;
+}
+
+.logout-link:hover {
+  background-color: rgba(255, 0, 0, 0.15);
+  color: white;
+}

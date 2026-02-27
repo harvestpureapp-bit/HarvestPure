@@ -1,0 +1,54 @@
+.farmer-earnings-page {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+  min-height: 100vh;
+}
+
+/* Summary Cards */
+
+.earnings-card {
+  padding: 28px;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.earnings-card:hover {
+  transform: translateY(-5px);
+}
+
+.gross-card {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+}
+
+.commission-card {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+}
+
+.net-card {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+}
+
+.earnings-card h6 {
+  font-size: 13px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.earnings-card h2 {
+  font-size: 30px;
+  font-weight: 800;
+  margin-top: 8px;
+}
+
+/* Table */
+
+.earnings-table thead th {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6c757d;
+}
+
+.earnings-table tbody tr:hover {
+  background-color: #f1f5f9;
+}

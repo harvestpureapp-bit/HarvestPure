@@ -1,0 +1,39 @@
+.farmer-dashboard {
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.farmer-card {
+  padding: 25px;
+  border-radius: 18px;
+  color: white;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.farmer-card:hover {
+  transform: translateY(-6px);
+}
+
+.card-orders {
+  background: linear-gradient(135deg, #0d6efd, #4dabf7);
+}
+
+.card-gross {
+  background: linear-gradient(135deg, #198754, #20c997);
+}
+
+.card-commission {
+  background: linear-gradient(135deg, #dc3545, #ff6b6b);
+}
+
+.card-net {
+  background: linear-gradient(135deg, #6f42c1, #9775fa);
+}
+.card-pending {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.card-delivered {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+}

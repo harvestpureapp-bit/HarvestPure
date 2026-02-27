@@ -1,0 +1,59 @@
+.growers-page {
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* Inputs */
+.modern-input {
+  border-radius: 12px;
+  padding: 10px 15px;
+  border: 1px solid #dee2e6;
+}
+
+.modern-input:focus {
+  box-shadow: none;
+  border-color: #198754;
+}
+
+/* Buttons */
+.modern-btn {
+  background: linear-gradient(135deg, #198754, #20c997);
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.modern-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Preview */
+.grower-preview {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Table */
+.modern-table thead {
+  background: #f1f3f5;
+  font-weight: 600;
+}
+
+.modern-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.grower-table-img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 50%;
+}
