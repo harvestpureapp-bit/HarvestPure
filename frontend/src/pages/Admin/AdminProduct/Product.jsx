@@ -7,7 +7,7 @@ function Products() {
   const token = localStorage.getItem("token");
 
   const fetchProducts = async () => {
-    const res = await fetch("http://localhost:8080/products/admin", {
+    const res = await fetch("https://harvestpure.onrender.com/products/admin", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -22,7 +22,7 @@ function Products() {
   }, []);
 
   const toggleStatus = async (id, currentStatus) => {
-    await fetch(`http://localhost:8080/products/${id}/status`, {
+    await fetch(`https://harvestpure.onrender.com/products/${id}/status`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -102,7 +102,7 @@ function Products() {
 
                       <td>
                         <img
-                          src={`http://localhost:8080${product.primary_image}`}
+                          src={`https://harvestpure.onrender.com${product.primary_image}`}
                           alt={product.title}
                           className="product-img"
                         />

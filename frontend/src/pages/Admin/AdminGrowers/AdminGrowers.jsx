@@ -16,7 +16,7 @@ function AdminGrowers() {
   const token = localStorage.getItem("token");
 
   const fetchGrowers = async () => {
-    const res = await fetch("http://localhost:8080/growers", {
+    const res = await fetch("https://harvestpure.onrender.com/growers", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
@@ -49,13 +49,13 @@ function AdminGrowers() {
     if (image) form.append("profile_image", image);
 
     if (editId) {
-      await fetch(`http://localhost:8080/growers/${editId}`, {
+      await fetch(`https://harvestpure.onrender.com/growers/${editId}`, {
         method: "PUT",
         headers: { Authorization: `Bearer ${token}` },
         body: form,
       });
     } else {
-      await fetch("http://localhost:8080/growers", {
+      await fetch("https://harvestpure.onrender.com/growers", {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: form,
@@ -70,7 +70,7 @@ function AdminGrowers() {
   };
 
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:8080/growers/${id}`, {
+    await fetch(`https://harvestpure.onrender.com/growers/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -84,7 +84,7 @@ function AdminGrowers() {
       description: grower.description,
       rating: grower.rating,
     });
-    setPreview(`http://localhost:8080${grower.profile_image}`);
+    setPreview(`https://harvestpure.onrender.com${grower.profile_image}`);
   };
 
   return (
@@ -100,7 +100,6 @@ function AdminGrowers() {
 
           <form onSubmit={handleSubmit}>
             <div className="row g-4">
-
               <div className="col-md-4">
                 <input
                   type="text"
@@ -134,11 +133,7 @@ function AdminGrowers() {
 
               {preview && (
                 <div className="col-12 text-center">
-                  <img
-                    src={preview}
-                    alt="Preview"
-                    className="grower-preview"
-                  />
+                  <img src={preview} alt="Preview" className="grower-preview" />
                 </div>
               )}
 
@@ -158,7 +153,6 @@ function AdminGrowers() {
                   {editId ? "Update Grower" : "Add Grower"}
                 </button>
               </div>
-
             </div>
           </form>
         </div>
@@ -193,7 +187,7 @@ function AdminGrowers() {
                       <td>{g.id}</td>
                       <td>
                         <img
-                          src={`http://localhost:8080${g.profile_image}`}
+                          src={g.profile_image}
                           alt={g.name}
                           className="grower-table-img"
                         />

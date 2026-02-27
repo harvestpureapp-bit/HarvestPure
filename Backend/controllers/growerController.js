@@ -11,7 +11,7 @@ const addGrower = async (req, res) => {
   try {
     const { name, description, rating } = req.body;
 
-    const profile_image = req.file ? `/uploads/${req.file.filename}` : null;
+    const profile_image = req.file ? req.file.path : null;
 
     const grower = await createGrower({
       name,

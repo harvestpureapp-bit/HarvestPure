@@ -15,8 +15,8 @@ function FarmerDashboard() {
         const headers = { Authorization: `Bearer ${token}` };
 
         const [ordersRes, earningsRes] = await Promise.all([
-          fetch("http://localhost:8080/orders/farmer", { headers }),
-          fetch("http://localhost:8080/earnings/grower", { headers }),
+          fetch("https://harvestpure.onrender.com/orders/farmer", { headers }),
+          fetch("https://harvestpure.onrender.com/earnings/grower", { headers }),
         ]);
 
         const ordersData = await ordersRes.json();

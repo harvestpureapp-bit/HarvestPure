@@ -11,7 +11,7 @@ function AdminEarnings() {
   const fetchEarnings = async () => {
     try {
       const res = await fetch(
-        "http://localhost:8080/earnings/admin/all",
+        "https://harvestpure.onrender.com/earnings/admin/all",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -29,7 +29,7 @@ function AdminEarnings() {
   const fetchRevenue = async () => {
     try {
       const res = await fetch(
-        "http://localhost:8080/earnings/admin/revenue",
+        "https://harvestpure.onrender.com/earnings/admin/revenue",
         {
           headers: {
             Authorization: `Bearer ${token}`,

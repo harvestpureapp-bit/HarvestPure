@@ -31,8 +31,8 @@ function AdminDashboard() {
         };
 
         const [productsRes, ordersRes] = await Promise.all([
-          fetch("http://localhost:8080/products", { headers }),
-          fetch("http://localhost:8080/orders", { headers }),
+          fetch("https://harvestpure.onrender.com/products", { headers }),
+          fetch("https://harvestpure.onrender.com/orders", { headers }),
         ]);
 
         const products = await productsRes.json();

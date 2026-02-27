@@ -16,8 +16,8 @@ function FarmerEarnings() {
       };
 
       const [listRes, totalRes] = await Promise.all([
-        fetch("http://localhost:8080/earnings/grower", { headers }),
-        fetch("http://localhost:8080/earnings/grower/total", { headers }),
+        fetch("https://harvestpure.onrender.com/earnings/grower", { headers }),
+        fetch("https://harvestpure.onrender.com/earnings/grower/total", { headers }),
       ]);
 
       const listData = await listRes.json();

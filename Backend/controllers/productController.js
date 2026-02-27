@@ -26,7 +26,7 @@ const addProduct = async (req, res) => {
     const grower_id = growerResult.rows[0].id;
 
     const imagePaths = req.files
-      ? req.files.map((file) => `/uploads/${file.filename}`)
+      ? req.files.map((file) => file.path) // ✅ Cloudinary URL
       : [];
 
     const product = await createProduct({

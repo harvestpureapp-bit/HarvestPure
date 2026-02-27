@@ -8,7 +8,7 @@ function AdminOrders() {
   const token = localStorage.getItem("token");
 
   const fetchOrders = async () => {
-    const res = await fetch("http://localhost:8080/orders", {
+    const res = await fetch("https://harvestpure.onrender.com/orders", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -23,7 +23,7 @@ function AdminOrders() {
   }, []);
 
   const updateStatus = async (id, status) => {
-    await fetch(`http://localhost:8080/orders/${id}/status`, {
+    await fetch(`https://harvestpure.onrender.com/orders/${id}/status`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

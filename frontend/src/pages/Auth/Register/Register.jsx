@@ -38,7 +38,7 @@ function Register() {
         bodyData.adminSecret = formData.adminSecret;
       }
 
-      const response = await fetch("http://localhost:8080/auth/register", {
+      const response = await fetch("https://harvestpure.onrender.com/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bodyData),

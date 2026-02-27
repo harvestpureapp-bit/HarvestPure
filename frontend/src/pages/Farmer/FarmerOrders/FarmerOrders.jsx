@@ -10,7 +10,7 @@ function FarmerOrders() {
 
   const fetchOrders = async () => {
     try {
-      const res = await fetch("http://localhost:8080/orders/farmer", {
+      const res = await fetch("https://harvestpure.onrender.com/orders/farmer", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
