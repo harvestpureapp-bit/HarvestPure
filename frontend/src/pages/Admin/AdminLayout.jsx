@@ -1,5 +1,5 @@
 import AdminSidebar from "./AdminSidebar";
-import "./Admin.css";
+import "./admin.css";
 
 function AdminLayout({ children }) {
   return (
