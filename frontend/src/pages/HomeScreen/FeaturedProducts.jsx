@@ -7,7 +7,7 @@ export default function FeaturedProducts() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/products")
+      .get("https://harvestpure.onrender.com/products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
   }, []);

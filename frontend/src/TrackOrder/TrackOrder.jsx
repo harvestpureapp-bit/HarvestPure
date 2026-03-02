@@ -13,7 +13,7 @@ export default function TrackOrder() {
   useEffect(() => {
     const fetchOrder = async () => {
       const res = await axios.get(
-        `http://localhost:8080/orders/track/${trackingId}`,
+        `https://harvestpure.onrender.com/orders/track/${trackingId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 

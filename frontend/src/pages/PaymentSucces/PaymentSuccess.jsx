@@ -18,7 +18,7 @@ export default function PaymentSuccess() {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/cart", {
+        const res = await axios.get("https://harvestpure.onrender.com/cart", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -51,7 +51,7 @@ export default function PaymentSuccess() {
 
     try {
       const res = await axios.post(
-        "http://localhost:8080/payment/verify",
+        "https://harvestpure.onrender.com/payment/verify",
         {
           razorpay_order_id: paymentData.razorpay_order_id,
           razorpay_payment_id: paymentData.razorpay_payment_id,

@@ -6,7 +6,7 @@ export default function CartPage() {
   const [cart, setCart] = useState([]);
   const token = localStorage.getItem("token");
 
-  const API = "http://localhost:8080/cart";
+  const API = "https://harvestpure.onrender.com/cart";
 
   const handleCheckout = async () => {
     const token = localStorage.getItem("token");
@@ -14,7 +14,7 @@ export default function CartPage() {
     try {
       // Step 1 → Create Razorpay order
       const res = await axios.post(
-        "http://localhost:8080/payment/create-order",
+        "https://harvestpure.onrender.com/payment/create-order",
         {},
         {
           headers: {

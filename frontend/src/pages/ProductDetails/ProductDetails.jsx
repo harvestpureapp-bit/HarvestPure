@@ -15,7 +15,7 @@ export default function ProductDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/products/${slug}`)
+      .get(`https://harvestpure.onrender.com/products/${slug}`)
       .then((res) => {
         setProduct(res.data);
         setMainImage(res.data.primary_image);
@@ -49,7 +49,7 @@ export default function ProductDetails() {
 
     try {
       await axios.post(
-        "http://localhost:8080/cart",
+        "https://harvestpure.onrender.com/cart",
         {
           product_id: product.id,
           quantity: qty,
