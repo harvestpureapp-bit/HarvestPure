@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./FeaturedProducts.css";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
 export default function FeaturedProducts() {
   const [products, setProducts] = useState([]);
 
@@ -15,7 +15,6 @@ export default function FeaturedProducts() {
   return (
     <section className="featured-section">
       <div className="container">
-
         {/* Header */}
         <div className="d-flex justify-content-between align-items-center mb-4">
           <div>
@@ -34,7 +33,6 @@ export default function FeaturedProducts() {
           {products.slice(0, 4).map((product) => (
             <div className="col-lg-3 col-md-6 mb-4" key={product.id}>
               <div className="product-card">
-
                 {/* Image */}
                 <div className="image-wrapper">
                   <img
@@ -51,26 +49,24 @@ export default function FeaturedProducts() {
                 <div className="card-body">
                   <h5>{product.title}</h5>
                   <p className="farmer-name">
-                    <i className="fas fa-user"></i>{" "}
-                    Farmer: {product.grower_name}
+                    <i className="fas fa-user"></i> Farmer:{" "}
+                    {product.grower_name}
                   </p>
 
                   <div className="d-flex justify-content-between align-items-center mt-3">
                     <h4 className="price">${product.price}</h4>
-                    <a
-                      href={`/product/${product.slug}`}
+                    <Link
+                      to={`/product/${product.slug}`}
                       className="btn view-btn"
                     >
                       View Details
-                    </a>
+                    </Link>
                   </div>
-
                 </div>
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
