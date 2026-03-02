@@ -17,7 +17,9 @@ function FarmerEarnings() {
 
       const [listRes, totalRes] = await Promise.all([
         fetch("https://harvestpure.onrender.com/earnings/grower", { headers }),
-        fetch("https://harvestpure.onrender.com/earnings/grower/total", { headers }),
+        fetch("https://harvestpure.onrender.com/earnings/grower/total", {
+          headers,
+        }),
       ]);
 
       const listData = await listRes.json();
@@ -38,12 +40,7 @@ function FarmerEarnings() {
 
   const totalGross = earnings.reduce(
     (sum, e) => sum + Number(e.gross_amount || 0),
-    0
-  );
-
-  const totalCommission = earnings.reduce(
-    (sum, e) => sum + Number(e.platform_commission || 0),
-    0
+    0,
   );
 
   if (loading) {
@@ -69,13 +66,6 @@ function FarmerEarnings() {
           </div>
 
           <div className="col-md-4">
-            <div className="earnings-card commission-card">
-              <h6>Platform Commission</h6>
-              <h2>₹ {totalCommission.toFixed(2)}</h2>
-            </div>
-          </div>
-
-          <div className="col-md-4">
             <div className="earnings-card net-card">
               <h6>Your Earnings</h6>
               <h2>₹ {total.toFixed(2)}</h2>
@@ -93,7 +83,6 @@ function FarmerEarnings() {
                 <tr>
                   <th>Order ID</th>
                   <th>Gross</th>
-                  <th>Commission</th>
                   <th>Net</th>
                   <th>Date</th>
                 </tr>
@@ -111,15 +100,10 @@ function FarmerEarnings() {
                     <tr key={index}>
                       <td>#{e.order_id}</td>
                       <td>₹ {Number(e.gross_amount).toFixed(2)}</td>
-                      <td className="text-danger">
-                        ₹ {Number(e.platform_commission).toFixed(2)}
-                      </td>
                       <td className="text-success">
                         ₹ {Number(e.net_amount).toFixed(2)}
                       </td>
-                      <td>
-                        {new Date(e.created_at).toLocaleDateString()}
-                      </td>
+                      <td>{new Date(e.created_at).toLocaleDateString()}</td>
                     </tr>
                   ))
                 )}

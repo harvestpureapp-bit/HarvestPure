@@ -14,16 +14,19 @@ function Login() {
     setError("");
 
     try {
-      const response = await fetch("https://harvestpure.onrender.com/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://harvestpure.onrender.com/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            identifier,
+            password,
+          }),
         },
-        body: JSON.stringify({
-          identifier,
-          password,
-        }),
-      });
+      );
 
       const data = await response.json();
 
@@ -32,7 +35,26 @@ function Login() {
       }
 
       // Save token
+      // Save token
       localStorage.setItem("token", data.token);
+
+      // 🔥 ADD THESE TWO LINES (IMPORTANT)
+      localStorage.setItem("user", JSON.stringify(data.user));
+      window.dispatchEvent(new Event("authChanged"));
+
+      // Redirect based on role
+      if (!response.ok) {
+        throw new Error(data.message || "Login failed");
+      }
+
+      // Save token
+      localStorage.setItem("token", data.token);
+
+      // Save user (IMPORTANT)
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      // Notify navbar to update
+      window.dispatchEvent(new Event("authChanged"));
 
       // Redirect based on role
       if (data.user.role === "admin") {
@@ -42,7 +64,6 @@ function Login() {
       } else {
         navigate("/");
       }
-
     } catch (err) {
       setError(err.message);
     }
@@ -51,14 +72,14 @@ function Login() {
   return (
     <div className="login-wrapper">
       <div className="login-card shadow">
-
         <div className="text-center mb-4">
           <div className="logo-box">
             <i className="fas fa-tractor"></i>
           </div>
           <h2 className="mt-3 fw-bold">Welcome Back</h2>
           <p className="text-muted">
-            Access the decentralized marketplace for global agriculture and secure transactions.
+            Access the decentralized marketplace for global agriculture and
+            secure transactions.
           </p>
         </div>
 
@@ -106,12 +127,17 @@ function Login() {
                 className="input-group-text cursor-pointer"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                <i className={`fas ${showPassword ? "fa-eye-slash" : "fa-eye"}`}></i>
+                <i
+                  className={`fas ${showPassword ? "fa-eye-slash" : "fa-eye"}`}
+                ></i>
               </span>
             </div>
           </div>
 
-          <button type="submit" className="btn btn-success w-100 py-2 fw-semibold">
+          <button
+            type="submit"
+            className="btn btn-success w-100 py-2 fw-semibold"
+          >
             Login to Dashboard
           </button>
         </form>
@@ -132,7 +158,6 @@ function Login() {
             </a>
           </span>
         </div>
-
       </div>
 
       <div className="text-center mt-4 text-muted small">

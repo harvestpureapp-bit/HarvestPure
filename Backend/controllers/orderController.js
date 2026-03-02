@@ -3,7 +3,7 @@ const {
   getFarmerOrders,
   updateOrderStatus,
   getAllOrdersDetailed,
-  trackOrderByTrackingId
+  trackOrderByTrackingId,
 } = require("../models/orderModel");
 
 // USER PLACE ORDER
@@ -11,14 +11,8 @@ const placeOrder = async (req, res) => {
   try {
     const user_id = req.user.id;
 
-    const {
-      first_name,
-      last_name,
-      phone,
-      street_address,
-      city,
-      postal_code,
-    } = req.body;
+    const { first_name, last_name, phone, street_address, city, postal_code } =
+      req.body;
 
     if (
       !first_name ||
@@ -100,14 +94,15 @@ const fetchAllOrders = async (req, res) => {
 const trackOrder = async (req, res) => {
   try {
     const { trackingId } = req.params;
+    const user_id = req.user.id;
 
-    const order = await trackOrderByTrackingId(trackingId);
+    const data = await trackOrderByTrackingId(trackingId, user_id);
 
-    if (order.length === 0) {
+    if (!data) {
       return res.status(404).json({ message: "Order not found" });
     }
 
-    res.json(order);
+    res.json(data);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -118,5 +113,5 @@ module.exports = {
   fetchFarmerOrders,
   changeOrderStatus,
   fetchAllOrders,
-  trackOrder
+  trackOrder,
 };

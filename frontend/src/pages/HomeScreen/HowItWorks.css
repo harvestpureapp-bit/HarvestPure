@@ -1,0 +1,66 @@
+/* Section Background */
+.how-section {
+  background-color: #f5f7fa;
+  padding: 100px 0;
+}
+
+/* Title */
+.section-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: #6b7280;
+  max-width: 650px;
+  margin: 15px auto 0;
+  line-height: 1.6;
+}
+
+/* Card */
+.how-card {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: left;
+  height: 100%;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+  transition: 0.3s ease;
+}
+
+.how-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Icon Box */
+.icon-box {
+  width: 70px;
+  height: 70px;
+  background-color: #e6f4ea;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.icon-box i {
+  font-size: 28px;
+  color: #2e7d32;
+}
+
+/* Heading */
+.how-card h4 {
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #111827;
+}
+
+/* Text */
+.how-card p {
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.7;
+}

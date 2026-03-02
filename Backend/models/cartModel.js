@@ -33,19 +33,21 @@ const getCartItems = async (user_id) => {
     `SELECT 
         c.id,
         c.quantity,
+        p.id AS product_id,
         p.title,
         p.price,
         p.primary_image,
-        u.username AS farmer_name
+        g.name AS farmer_name
      FROM cart_items c
      JOIN products p ON c.product_id = p.id
-     JOIN users u ON p.farmer_id = u.id
+     JOIN growers g ON p.grower_id = g.id
      WHERE c.user_id = $1`,
     [user_id],
   );
 
   return result.rows;
 };
+
 const removeFromCart = async (user_id, cart_id) => {
   const result = await pool.query(
     `DELETE FROM cart_items

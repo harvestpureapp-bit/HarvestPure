@@ -85,6 +85,7 @@ const getAllProducts = async () => {
         p.id,
         p.title,
         p.price,
+         p.slug,  
         LEFT(p.description, 120) AS description,
         p.stock,
         p.primary_image,
@@ -142,7 +143,7 @@ const getAllProductsForAdmin = async () => {
         g.name AS grower_name
      FROM products p
      LEFT JOIN growers g ON p.grower_id = g.id
-     ORDER BY p.created_at DESC`
+     ORDER BY p.created_at DESC`,
   );
 
   return result.rows;
@@ -164,7 +165,7 @@ const getProductsByFarmerUser = async (user_id) => {
      JOIN growers g ON p.grower_id = g.id
      WHERE g.user_id = $1
      ORDER BY p.created_at DESC`,
-    [user_id]
+    [user_id],
   );
 
   return result.rows;
@@ -176,6 +177,5 @@ module.exports = {
   getAllProducts,
   getProductBySlug,
   getAllProductsForAdmin,
-  getProductsByFarmerUser
+  getProductsByFarmerUser,
 };
-

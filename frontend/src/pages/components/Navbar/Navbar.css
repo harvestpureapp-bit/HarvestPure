@@ -1,0 +1,107 @@
+/* ================= NAVBAR BASE ================= */
+
+.custom-navbar {
+  background-color: #f4f4f4;
+  border-radius: 12px;
+  padding: 10px 20px;
+}
+
+/* Logo */
+
+.logo-icon {
+  background-color: #2e7d32;
+  color: white;
+  font-size: 20px;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.brand-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+/* Center Nav Links */
+
+.nav-center .nav-link {
+  font-weight: 500;
+  color: #333;
+  margin: 0 12px;
+}
+
+.nav-center .nav-link:hover {
+  color: #2e7d32;
+}
+
+/* Wallet Button */
+
+.wallet-btn {
+  background-color: #2e7d32;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: 500;
+  border: none;
+}
+
+.wallet-btn:hover {
+  background-color: #256628;
+}
+
+/* Login */
+
+.login-link {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Register Button */
+
+.register-btn {
+  background-color: #e6efe6;
+  color: #2e7d32;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: 500;
+  border: none;
+}
+
+.register-btn:hover {
+  background-color: #d5e6d5;
+}
+
+/* Cart */
+
+.cart-wrapper {
+  position: relative;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: #2e7d32;
+  color: white;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 50%;
+}
+
+.profile-section .username {
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.logout-btn {
+  background: #eef2f7;
+  border-radius: 8px;
+  padding: 6px 14px;
+}
+
+.logout-btn:hover {
+  background: #2e7d32;
+  color: white;
+}

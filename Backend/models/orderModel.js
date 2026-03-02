@@ -187,7 +187,7 @@ const getAllOrdersDetailed = async () => {
 };
 
 // TRACK ORDER BY TRACKING ID
-const trackOrderByTrackingId = async (tracking_id) => {
+const trackOrderByTrackingId = async (tracking_id, user_id) => {
   const result = await pool.query(
     `SELECT 
         o.id AS order_id,
@@ -202,17 +202,46 @@ const trackOrderByTrackingId = async (tracking_id) => {
         s.city,
         s.postal_code,
         p.title AS product_title,
+        p.primary_image,
         oi.quantity,
         oi.price_at_purchase
      FROM orders o
      JOIN shipping_addresses s ON s.order_id = o.id
      JOIN order_items oi ON oi.order_id = o.id
      JOIN products p ON oi.product_id = p.id
-     WHERE o.tracking_id = $1`,
-    [tracking_id],
+     WHERE o.tracking_id = $1
+       AND o.user_id = $2`,
+    [tracking_id, user_id],
   );
 
-  return result.rows;
+  if (result.rows.length === 0) return null;
+
+  const orderInfo = result.rows[0];
+
+  const order = {
+    order_id: orderInfo.order_id,
+    tracking_id: orderInfo.tracking_id,
+    order_status: orderInfo.order_status,
+    total_amount: orderInfo.total_amount,
+    created_at: orderInfo.created_at,
+    shipping: {
+      first_name: orderInfo.first_name,
+      last_name: orderInfo.last_name,
+      phone: orderInfo.phone,
+      street_address: orderInfo.street_address,
+      city: orderInfo.city,
+      postal_code: orderInfo.postal_code,
+    },
+  };
+
+  const items = result.rows.map((row) => ({
+    title: row.product_title,
+    primary_image: row.primary_image,
+    quantity: row.quantity,
+    price: row.price_at_purchase,
+  }));
+
+  return { order, items };
 };
 
 module.exports = {

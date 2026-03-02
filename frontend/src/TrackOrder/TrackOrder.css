@@ -1,0 +1,148 @@
+.track-page {
+  background: #f5f7fa;
+  padding: 40px 0;
+}
+
+.track-container {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.track-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tracking-id {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.timeline-step {
+  text-align: center;
+  flex: 1;
+}
+
+.timeline-step .circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #d1d5db;
+  margin: auto;
+  margin-bottom: 8px;
+}
+
+.timeline-step.active .circle {
+  background: #2e7d32;
+}
+
+.track-content {
+  display: flex;
+  gap: 30px;
+}
+
+.track-left {
+  flex: 2;
+}
+
+.track-right {
+  flex: 1;
+}
+
+.status-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.map-box {
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.map-placeholder {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+}
+
+.blockchain-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.journey-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.journey-item .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #2e7d32;
+  margin-top: 6px;
+}
+
+.summary-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.summary-item img {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.help-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.help-card button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #e5e7eb;
+  cursor: pointer;
+}
